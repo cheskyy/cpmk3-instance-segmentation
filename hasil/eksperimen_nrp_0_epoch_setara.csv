@@ -1,0 +1,10 @@
+model_name,input_size,common_epoch,mask_AP50_95_logged,validation_metric_backend
+YOLO11n,320,31,0.05554,Ultralytics
+YOLO11n,640,31,0.08544,Ultralytics
+YOLO11n,960,31,0.0845,Ultralytics
+YOLO11s,320,39,0.12851,Ultralytics
+YOLO11s,640,39,0.16733,Ultralytics
+YOLO11s,960,39,0.20152,Ultralytics
+MaskRCNN,320,12,0.10721668,COCOeval
+MaskRCNN,640,12,0.13253574,COCOeval
+MaskRCNN,960,12,0.14101945,COCOeval
