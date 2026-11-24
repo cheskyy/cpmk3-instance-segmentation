@@ -1,6 +1,8 @@
 # Deklarasi penggunaan AI
 
-Codex membantu mengaudit split data, memperbaiki notebook, memeriksa kandidat mask, membuat poligon pada objek yang terlihat, dan menjalankan eksperimen di Kaggle. Mask2Former COCO Panoptic menghasilkan kandidat mask tambahan. Pemilihan kandidat dilakukan berdasarkan inspeksi foto dan kelas acuan sebelum membuka hasil prediksi model tugas pada foto HP. Draf mask perlu diperiksa oleh pemilik foto di Roboflow sebelum digunakan sebagai bukti anotasi sendiri.
+Saya menggunakan AI untuk mendapatkan saran dan membantu memperbaiki kode notebook. AI juga membantu memeriksa pembagian dataset dan menjalankan eksperimen di Kaggle.
+
+Dalam penyiapan anotasi, AI membantu meninjau kandidat mask dan membuat poligon pada objek yang terlihat. Mask2Former COCO Panoptic menghasilkan kandidat mask tambahan. Kandidat dipilih dengan mencocokkan bentuk objek dan kelas acuan sebelum melihat hasil prediksi model tugas pada foto HP. Draf mask perlu diperiksa oleh pemilik foto di Roboflow sebelum digunakan sebagai bukti anotasi sendiri.
 
 ## Prompt utama yang digunakan
 
