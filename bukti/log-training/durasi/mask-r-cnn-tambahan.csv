@@ -1,0 +1,3 @@
+utc,model,run,seconds,status,gpu
+2026-11-23T20:22:48+00:00,MaskRCNN,maskrcnn_320,2426.203,complete,Tesla T4
+2026-11-23T21:04:38+00:00,MaskRCNN,maskrcnn_960,2466.806,complete,Tesla T4

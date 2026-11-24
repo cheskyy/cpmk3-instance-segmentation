@@ -1,0 +1,6 @@
+utc,model,run,seconds,status,gpu
+2026-11-23T12:55:22+00:00,YOLO11n,yolo11n_640,1237.302,complete,Tesla T4
+2026-11-23T13:25:47+00:00,YOLO11s,yolo11s_640,1823.83,complete,Tesla T4
+2026-11-23T14:06:12+00:00,MaskRCNN,maskrcnn_640,2423.375,complete,Tesla T4
+2026-11-23T14:26:31+00:00,YOLO11n,yolo11n_320,1218.113,complete,Tesla T4
+2026-11-23T14:46:54+00:00,YOLO11n,yolo11n_960,1222.916,complete,Tesla T4
