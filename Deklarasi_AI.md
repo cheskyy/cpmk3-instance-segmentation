@@ -1,21 +1,17 @@
 # Deklarasi penggunaan AI
 
-Saya menggunakan AI untuk mendapatkan saran dan membantu memperbaiki kode notebook. AI juga membantu memeriksa pembagian dataset dan menjalankan eksperimen di Kaggle.
+Saya menggunakan AI untuk mendapatkan saran dan membantu memperbaiki kode notebook. AI juga membantu mengecek pembagian data, menyiapkan draf anotasi foto uji, dan menjalankan eksperimen di Kaggle.
 
-Dalam penyiapan anotasi, AI membantu meninjau kandidat mask dan membuat poligon pada objek yang terlihat. Mask2Former COCO Panoptic menghasilkan kandidat mask tambahan. Kandidat dipilih dengan mencocokkan bentuk objek dan kelas acuan sebelum melihat hasil prediksi model tugas pada foto HP. Draf mask perlu diperiksa oleh pemilik foto di Roboflow sebelum digunakan sebagai bukti anotasi sendiri.
+Mask2Former digunakan untuk menghasilkan kandidat mask tambahan. Kandidat ditinjau berdasarkan bentuk objek dan kelas acuan sebelum evaluasi. Draf anotasi masih perlu diperiksa di Roboflow.
 
-## Prompt utama yang digunakan
+## Cuplikan prompt utama
 
-> Aku ingin kamu membantu mengerjakan tugas machine learning/deep learning ini secara menyeluruh berdasarkan file yang akan aku berikan, dengan mengacu pada instruksi PPT sebagai pedoman utama.
+Permintaan awal mencakup penyusunan dan pengecekan notebook sesuai instruksi PPT.
 
-> kenapa hasilnya gada ya, aku mau hasilnya ada, tapi aku rasa akurasinya jeelek karna anotasi ku salah mungkin, tolong benerin
-
-> ini ada update an,  update lakukan dengan benar
+> Periksa kembali kode sebelum diberikan. Pastikan seluruh cell saling terhubung, pembagian dataset benar, label terbaca, metode sesuai instruksi, dan notebook dapat dijalankan tanpa kesalahan yang seharusnya bisa diantisipasi.
 
 ## Contoh perbaikan atas saran AI
 
-Rancangan awal memvariasikan 320, 640, dan 960 pada YOLO11n saja. Rubrik yang diterima saat pelatihan sudah berlangsung meminta tabel dan grafik untuk ketiga model. Empat run baru disiapkan untuk YOLO11s dan Mask R-CNN pada 320 dan 960 dengan split, recipe model, dan seed yang sama. Tabel utama memuat hasil checkpoint pilihan validation, durasi, dan jumlah epoch. Tabel pendamping membaca AP yang tercatat pada epoch yang sama dalam setiap model.
-
-Notebook versi pertama hanya menjalankan audit CPU. Itu menjelaskan mengapa pengguna belum melihat metrik model. Pelatihan GPU kemudian dijalankan dan hasilnya dicatat dari log pelatihan dan evaluator COCO.
+Saran awal menguji ukuran 320, 640, dan 960 piksel pada YOLO11n saja. Rubrik terbaru meminta perbandingan ketiga model, sehingga percobaan 320 dan 960 piksel ditambahkan untuk YOLO11s dan Mask R-CNN. Kesembilan konfigurasi dibandingkan pada set validasi yang sama. [Hasil eksperimen NRP 0](hasil/eksperimen_nrp_0.csv)
 
 [Model Mask2Former yang dipakai untuk kandidat mask](https://huggingface.co/facebook/mask2former-swin-tiny-coco-panoptic)
