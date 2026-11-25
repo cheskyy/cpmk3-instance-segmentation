@@ -2,6 +2,8 @@
 
 Proyek ini menguji pengaruh ukuran input terhadap kualitas mask objek di dalam ruangan. Rancangan percobaan membandingkan **YOLO11n-seg, YOLO11s-seg, dan Mask R-CNN ResNet-50 FPN** pada **320, 640, dan 960 piksel**. Tiga model dan tiga ukuran input menghasilkan sembilan kombinasi pelatihan.
 
+[Laporan PDF sesuai rubrik](Visi_Komputer_Laporan_Chelsea_5054241010_Revisi.pdf) · [Daftar berkas submission](../README.md#berkas-submission)
+
 ## 1. Pengambilan foto dan persiapan data
 
 Pengerjaan dimulai pada 17–19 November dengan pengambilan foto ruangan, persiapan anotasi di Roboflow, dan persiapan kode. Ekspor COCO v2 yang dipakai dalam evaluasi terdiri dari **395 foto latih, 164 foto validasi, 359 foto uji asli, dan 40 foto uji HP**. Empat gambar dari bagian latih dan validasi dikarantina karena dimensi file berbeda dari metadata COCO. Validasi dipakai untuk memilih checkpoint. Kedua set uji dipakai untuk evaluasi akhir. [Catatan data dan persiapan](../logbook/2026-11-23.md)
@@ -62,7 +64,7 @@ Eksperimen ini memakai prediksi yang sama dan menghitung ulang skor terhadap ano
 
 ### Pengujian ulang lima kasus kegagalan
 
-Lima foto yang prediksinya meleset diproses ulang pada ukuran inferensi 320, 640, dan 960 piksel memakai **checkpoint YOLO11n-seg yang sama**. Hasilnya dicatat sebagai deteksi yang cocok, objek yang terlewat, prediksi tambahan, dan rata-rata IoU mask yang cocok. Pada kasus 1, ukuran 960 menghasilkan 2 kecocokan dan 9 prediksi tambahan, sementara 320 menghasilkan 1 kecocokan dan 4 prediksi tambahan. [Tabel lima kasus](../hasil/uji_lima_kasus.csv)
+Lima foto yang prediksinya meleset diproses ulang pada ukuran inferensi 320, 640, dan 960 piksel memakai **checkpoint YOLO11n-seg yang sama**. Hasilnya dicatat sebagai deteksi yang cocok, objek yang terlewat, prediksi tambahan, dan rata-rata IoU mask yang cocok. Pada kasus 1, ukuran 960 menghasilkan 2 kecocokan dan 9 prediksi tambahan, sementara 320 menghasilkan 1 kecocokan dan 4 prediksi tambahan. [Tabel lima kasus](../hasil/uji_lima_kasus.csv) · [Lima studi kasus bergambar di halaman 5–6 PDF](Visi_Komputer_Laporan_Chelsea_5054241010_Revisi.pdf#page=5)
 
 ## 5. Before dan after prediksi model
 
@@ -86,6 +88,6 @@ Pada foto ini, model menandai dinding pada ketiga ukuran. Prediksi tambahan beru
 
 Pilihan ukuran input bergantung pada model. **YOLO11s-seg 960** unggul pada validasi, sementara **YOLO11s-seg 640** unggul dalam perbandingan tiga model pada kedua set uji pada 640 piksel. Audit foto HP juga menunjukkan bahwa kelengkapan dan konsistensi anotasi memengaruhi skor yang dilaporkan.
 
-Notebook demo menyediakan alur untuk memasukkan foto baru, memilih kelas dan ambang skor, serta melihat overlay prediksi mask. [Notebook demo](../notebooks/05-demo-foto-baru.ipynb) · [Panduan demo](../Panduan_Demo.md)
+Notebook demo menyediakan alur untuk memasukkan foto baru, memilih kelas dan ambang skor, serta melihat overlay prediksi mask. [Notebook demo](../notebooks/05-demo-foto-baru.ipynb) · [Langkah menjalankan demo](../README.md#menjalankan-demo-foto-baru)
 
 Evaluasi versi 4 selesai pada 24 November 2026. Detail setelan dan sumber data untuk menjalankan evaluasi ulang tersedia pada README utama. [Cara menjalankan ulang](../README.md#menjalankan-ulang-evaluasi-di-kaggle) · [Notebook evaluasi](../notebooks/04-perbandingan-sembilan-run.ipynb)

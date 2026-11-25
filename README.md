@@ -8,12 +8,27 @@ Riwayat Git mulai dicatat setelah rubrik tambahan diterima pada 23 November 2026
 
 Evaluasi versi 4 selesai di Kaggle pada 24 November 2026. Tabel dan grafiknya bisa dibuka langsung dari repo ini.
 
+## Berkas submission
+
+1. **Laporan PDF** mengikuti urutan rubrik dan memuat lima studi kasus bergambar. [Buka atau unduh laporan](laporan/Visi_Komputer_Laporan_Chelsea_5054241010_Revisi.pdf)
+2. **Tautan repositori ini** memberi akses ke riwayat commit, notebook, logbook, dan hasil evaluasi. Pastikan akun penilai mendapat akses jika GitHub menolak membuka repositori tanpa login.
+3. **ZIP bukti pendamping** diserahkan sebagai lampiran. Isinya logbook, deklarasi AI, notebook, CSV pelatihan per epoch dan waktu GPU, tabel dan grafik hasil, panel prediksi, serta metadata EXIF untuk 40 foto HP. ZIP dapat dibuka tanpa akun Kaggle.
+
+| Rubrik | Bukti yang tersedia | Catatan |
+|---|---|---|
+| Test set buatan sendiri | 40 foto HP, 11 kondisi sulit pada seleksi awal, tangkapan layar anotasi, EXIF di ZIP, skor dan domain shift. [Laporan PDF](laporan/Visi_Komputer_Laporan_Chelsea_5054241010_Revisi.pdf) · [Tabel domain shift](hasil/domain_shift.csv) | 352 mask merupakan draf yang masih perlu ditinjau. Ekspor yang dipakai COCO v2. [Versi v5 rujukan](https://universe.roboflow.com/panopticindoor/panoptic-indoor-segmentation/dataset/5) |
+| Parameter NRP 0 | Tiga model × tiga input, yaitu 320, 640, dan 960 piksel. [Tabel](hasil/eksperimen_nrp_0.csv) · [Grafik](hasil/grafik/nrp_input_size.png) | Skor tertinggi 20,95% di validasi untuk YOLO11s-seg 960 px. |
+| Hipotesis | [Logbook hipotesis run tambahan](logbook/2026-11-23-hipotesis-run-tambahan.md) | Catatan sebelum training pertama belum tersedia. |
+| Analisis kegagalan | Lima studi kasus bergambar di halaman 5–6 PDF. [Tabel uji ulang](hasil/uji_lima_kasus.csv) | Model yang dianalisis adalah YOLO11n-seg. |
+| Bukti proses | [Log pelatihan dan GPU](bukti/log-training/) · [Logbook 23 November](logbook/2026-11-23.md) · [Logbook 24 November](logbook/2026-11-24.md) | Riwayat Git bertahap tercatat sejak 23 November. |
+| Penggunaan AI | [Deklarasi AI, prompt, dan koreksi](Deklarasi_AI.md) | Draf mask mencakup bantuan Codex dan Mask2Former. |
+| Demo dan tanya jawab | [Notebook demo](notebooks/05-demo-foto-baru.ipynb) · [Langkah demo](#menjalankan-demo-foto-baru) | Inferensi pada foto baru dilakukan saat sesi. |
+
 ## Hasil dan catatan pengerjaan
 
 - [Laporan lengkap dari persiapan data sampai hasil uji](laporan/README.md) · [Contoh gambar ground truth](laporan/README.md#2-anotasi-dan-contoh-ground-truth) · [Daftar pengujian yang sudah dilakukan](laporan/README.md#4-pengujian-yang-sudah-dilakukan)
 
-- [Laporan revisi (PDF)](laporan/Visi_Komputer_Laporan_Chelsea_5054241010_Revisi.pdf)
-- Untuk bukti evaluasi asli, buka **Version 4** di notebook Kaggle. Tautan bisa dibuka dengan akun yang punya akses ke notebook privat. [Notebook evaluasi di Kaggle](https://www.kaggle.com/code/seaalautt/cpmk3-instance-segmentation)
+- Hasil evaluasi asli disimpan di Version 4 dari notebook Kaggle privat `seaalautt/cpmk3-instance-segmentation`. Kode dan tabel yang bisa diperiksa dari repo atau ZIP tersedia di sini. [Notebook evaluasi](notebooks/04-perbandingan-sembilan-run.ipynb)
 - [Tabel dan grafik hasil evaluasi](hasil/README.md)
 - [CSV pelatihan asli dan waktu GPU](bukti/log-training/)
 - [Logbook 23 November](logbook/2026-11-23.md) dan [pembaruan 24 November](logbook/2026-11-24.md)
@@ -45,3 +60,10 @@ Masuk ke Kaggle sebagai `seaalautt` atau pakai akun yang sudah diberi akses ke s
 3. Pakai `RUN_TRAINING = False` untuk menilai checkpoint yang sudah ada. Notebook membaca input dari `/kaggle/input` dan menyimpan hasil ke `/kaggle/working/cpmk3_final`.
 
 Hipotesis dibuat sebelum pelatihan tambahan. Catatan hipotesis sebelum pelatihan pertama masih belum tersedia. Metadata EXIF, overlay, dan gambar contoh kegagalan bisa dilihat di Output Kaggle.
+
+
+## Menjalankan demo foto baru
+
+1. Impor [notebook demo](notebooks/05-demo-foto-baru.ipynb) ke Kaggle. Dengan akun yang punya akses, tambahkan output privat `seaalautt/cpmk3-training-gpu` Version 1 dan `seaalautt/cpmk3-instance-segmentation` Version 4. Tambahkan setiap output satu kali.
+2. Jalankan sel dari atas hingga muncul **Pilih foto**. Unggah JPG atau PNG baru, pilih model, lalu klik **Jalankan inferensi**. Foto dan mask prediksi muncul berdampingan.
+3. Untuk menunjukkan perubahan ambang, geser **Ambang** dari 0,35 ke 0,60 pada foto yang sama. **Tampilkan AP** membaca skor per kelas dari evaluasi terdahulu.
