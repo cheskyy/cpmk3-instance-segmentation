@@ -64,7 +64,17 @@ Eksperimen ini memakai prediksi yang sama dan menghitung ulang skor terhadap ano
 
 Lima foto yang prediksinya meleset diproses ulang pada ukuran inferensi 320, 640, dan 960 piksel memakai **checkpoint YOLO11n-seg yang sama**. Hasilnya dicatat sebagai deteksi yang cocok, objek yang terlewat, prediksi tambahan, dan rata-rata IoU mask yang cocok. Pada kasus 1, ukuran 960 menghasilkan 2 kecocokan dan 9 prediksi tambahan, sementara 320 menghasilkan 1 kecocokan dan 4 prediksi tambahan. [Tabel lima kasus](../hasil/uji_lima_kasus.csv)
 
-## 5. Kesimpulan dan demo
+## 5. Before dan after prediksi model
+
+### YOLO11n-seg · 640 piksel
+
+Foto uji HP `20261118_192940.jpg` adalah salah satu dari lima kasus yang diuji ulang. Panel **Before** menampilkan foto sebelum inferensi, **Ground truth** menampilkan anotasi acuan, dan **After** menampilkan mask prediksi dari checkpoint terlatih dengan ambang skor 0,50.
+
+![Foto asli, ground truth, dan prediksi YOLO11n-seg](gambar/yolo11n-before-after.png)
+
+Mask sian menandai dinding. Model juga memprediksi kelas `person` (merah muda, skor 0,66) pada area yang mencakup botol. Ground truth menandai botol dengan warna hijau dan buku dengan warna kuning. [Tabel lima kasus](../hasil/uji_lima_kasus.csv)
+
+## 6. Kesimpulan dan demo
 
 Pilihan ukuran input bergantung pada model. **YOLO11s-seg 960** unggul pada validasi, sementara **YOLO11s-seg 640** unggul dalam perbandingan tiga model pada kedua set uji pada 640 piksel. Audit foto HP juga menunjukkan bahwa kelengkapan dan konsistensi anotasi memengaruhi skor yang dilaporkan.
 
