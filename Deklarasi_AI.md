@@ -2,6 +2,8 @@
 
 Saya menggunakan AI untuk mendapatkan saran dan membantu memperbaiki kode notebook. Saya juga memakai bantuan AI saat mengecek pembagian data, membuat draf anotasi foto uji, dan menjalankan percobaan di Kaggle.
 
+Saat menyunting dokumen yang sudah ada, saya menggunakan AI untuk merapikan kalimat tanpa menambahkan isi baru.
+
 Mask2Former membantu membuat kandidat mask tambahan. Kandidatnya dicek dari bentuk objek dan kecocokan kelas sebelum evaluasi. Draf anotasi masih perlu dicek di Roboflow.
 
 ## Cuplikan prompt utama
