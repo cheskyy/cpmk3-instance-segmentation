@@ -24,4 +24,4 @@ Tabel dan grafik di halaman ini berasal dari evaluasi Kaggle versi 4 yang selesa
 - [Grafik pada epoch setara](grafik/nrp_input_size_epoch_setara.png)
 - [Kurva loss pelatihan](grafik/kurva_loss_training.png)
 
-Notebook sumber dapat dibuka dengan akun Kaggle `seaalautt`. [Masuk ke notebook sumber di Kaggle](https://www.kaggle.com/account/login?phase=startSignInTab&returnUrl=%2Fcode%2Fseaalautt%2Fcpmk3-instance-segmentation%2Foutput)
+Kode yang dipakai untuk menjalankan evaluasi Kaggle versi 4 tersedia di repo ini. [Buka notebook sumber di GitHub](../notebooks/04-perbandingan-sembilan-run.ipynb)
