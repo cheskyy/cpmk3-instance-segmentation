@@ -10,6 +10,7 @@ Evaluasi versi 4 selesai di Kaggle pada 24 November 2026. Tabel dan grafiknya bi
 
 ## Hasil dan catatan pengerjaan
 
+- [Laporan revisi (PDF)](laporan/Visi_Komputer_Laporan_Chelsea_5054241010_Revisi.pdf)
 - [Buka Output Kaggle versi 4](hasil/README.md)
 - [CSV pelatihan asli dan waktu GPU](bukti/log-training/)
 - [Logbook 23 November](logbook/2026-11-23.md) dan [pembaruan 24 November](logbook/2026-11-24.md)
