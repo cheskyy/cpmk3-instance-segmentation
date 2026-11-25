@@ -6,11 +6,11 @@ Notebook Kaggle menyimpan dataset privat, hasil pelatihan, dan overlay revisi 40
 
 Riwayat Git dimulai setelah rubrik tambahan diterima pada 23 November 2026. Notebook yang sudah digunakan disimpan sebagai cuplikan tahap kerja saat itu.
 
-Evaluasi versi 4 selesai pada 24 November 2026. Output memuat sembilan hasil validasi, perbandingan tiga model pada kedua set uji, grafik, lima studi kasus, dan sel demo. [Output Kaggle](https://www.kaggle.com/code/seaalautt/cpmk3-instance-segmentation/output)
+Evaluasi Kaggle versi 4 selesai pada 24 November 2026. Tabel dan grafik hasilnya tersedia di repo ini.
 
 ## Hasil dan bukti proses
 
-- [Tabel hasil evaluasi](hasil/)
+- [Buka Output Kaggle versi 4](hasil/README.md)
 - [CSV pelatihan asli dan waktu GPU](bukti/log-training/)
 - [Logbook 23 November](logbook/2026-11-23.md) dan [pembaruan 24 November](logbook/2026-11-24.md)
 - [Hipotesis run tambahan](logbook/2026-11-23-hipotesis-run-tambahan.md)
