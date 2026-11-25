@@ -11,7 +11,8 @@ Evaluasi versi 4 selesai di Kaggle pada 24 November 2026. Tabel dan grafiknya bi
 ## Hasil dan catatan pengerjaan
 
 - [Laporan revisi (PDF)](laporan/Visi_Komputer_Laporan_Chelsea_5054241010_Revisi.pdf)
-- [Buka Output Kaggle versi 4](hasil/README.md)
+- Untuk bukti evaluasi asli, buka **Version 4** di notebook Kaggle. Tautan bisa dibuka dengan akun yang punya akses ke notebook privat. [Notebook evaluasi di Kaggle](https://www.kaggle.com/code/seaalautt/cpmk3-instance-segmentation)
+- [Tabel dan grafik hasil evaluasi](hasil/README.md)
 - [CSV pelatihan asli dan waktu GPU](bukti/log-training/)
 - [Logbook 23 November](logbook/2026-11-23.md) dan [pembaruan 24 November](logbook/2026-11-24.md)
 - [Hipotesis run tambahan](logbook/2026-11-23-hipotesis-run-tambahan.md)
