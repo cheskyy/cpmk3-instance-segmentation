@@ -13,7 +13,7 @@ Angka dan grafik ini diambil dari evaluasi Kaggle versi 4 yang selesai pada 24 N
 - Skor pada epoch yang sama diambil dari log validasi masing-masing model. YOLO memakai Ultralytics dan Mask R-CNN memakai COCOeval. [Hasil pada epoch setara](eksperimen_nrp_0_epoch_setara.csv)
 - Pengaruh revisi label dihitung pada 10 kelas bersama dengan foto dan prediksi yang sama. Draf uji HP berisi 352 mask dan masih perlu dicek di Roboflow. [Pengaruh revisi mask](dampak_revisi_mask_hp.csv)
 - Beda skor kedua set uji ditulis dalam poin persentase. [Tabel domain shift](domain_shift.csv)
-- Lima foto dengan prediksi yang meleset diuji lagi pada tiga ukuran inferensi. Ketiganya memakai checkpoint YOLO11n-seg yang sama. [Angka uji lima kasus](uji_lima_kasus.csv)
+- Lima foto dengan prediksi yang meleset diuji lagi pada tiga ukuran inferensi. Ketiganya memakai checkpoint YOLO11n-seg yang sama. Di kolom `mean_matched_IoU`, `N/A` berarti tidak ada mask prediksi yang cocok dengan anotasi (`TP = 0`), sehingga rata-ratanya tidak bisa dihitung. [Angka uji lima kasus](uji_lima_kasus.csv)
 
 ## Grafik hasil
 
