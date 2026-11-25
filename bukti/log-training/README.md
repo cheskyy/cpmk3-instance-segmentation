@@ -10,6 +10,6 @@ CSV asli dari Kaggle ada di folder tiap pelatihan. Pada YOLO, `results.csv` beri
 
 Waktu di kolom `utc` memakai zona UTC. Kolom `seconds` menghitung durasi sesi pelatihan di Tesla T4, termasuk validasi dan simpan checkpoint. Total waktunya 61,31 menit untuk YOLO11n-seg, 91,27 menit untuk YOLO11s-seg, dan 121,94 menit untuk Mask R-CNN. Alokasi awal Mask R-CNN 120 menit.
 
-- [Output pelatihan awal di Kaggle](https://www.kaggle.com/code/seaalautt/cpmk3-training-gpu/output)
-- [Output Mask R-CNN tambahan di Kaggle](https://www.kaggle.com/code/seaalautt/cpmk3-nrp-mask-r-cnn/output)
-- [Output YOLO11s tambahan di Kaggle](https://www.kaggle.com/code/seaalautt/cpmk3-nrp-yolo11s/output)
+- [Notebook pelatihan awal](../../notebooks/01-pelatihan-awal.ipynb)
+- [Notebook Mask R-CNN tambahan](../../notebooks/03-nrp-mask-r-cnn-tambahan.ipynb)
+- [Notebook YOLO11s tambahan](../../notebooks/03-nrp-yolo11s-tambahan.ipynb)

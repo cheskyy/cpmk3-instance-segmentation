@@ -28,11 +28,18 @@ Evaluasi versi 4 selesai di Kaggle pada 24 November 2026. Tabel dan grafiknya bi
 
 ## Menjalankan ulang evaluasi di Kaggle
 
-Pakai akun Kaggle `seaalautt` untuk membuka dataset dan output pelatihan yang privat.
+Masuk ke Kaggle sebagai `seaalautt` atau pakai akun yang sudah diberi akses ke sumber privat. Cari nama atau ID di bawah ini lewat **Add Input**. Catatan dan log bisa dibuka langsung di GitHub.
+
+| Nama di Kaggle | ID di Kaggle | Bukti di GitHub |
+|---|---|---|
+| CPMK3 Indoor Test40 | `seaalautt/cpmk3-indoor-test40` | [Catatan pembagian data](logbook/2026-11-23.md) |
+| CPMK3 Review Mask HP | `seaalautt/cpmk3-review-mask-hp` | [Notebook audit anotasi](notebooks/02-audit-revisi-mask-hp.ipynb) |
+| CPMK3 Training GPU | `seaalautt/cpmk3-training-gpu` | [Log waktu pelatihan awal](bukti/log-training/durasi/pelatihan-awal.csv) |
+| CPMK3 NRP YOLO11s | `seaalautt/cpmk3-nrp-yolo11s` | [Log waktu YOLO11s tambahan](bukti/log-training/durasi/yolo11s-tambahan.csv) |
+| CPMK3 NRP Mask R-CNN | `seaalautt/cpmk3-nrp-mask-r-cnn` | [Log waktu Mask R-CNN tambahan](bukti/log-training/durasi/mask-r-cnn-tambahan.csv) |
 
 1. Impor notebook evaluasi ke Kaggle, pilih GPU, lalu aktifkan internet supaya sel pertama bisa memasang pustaka yang dibutuhkan.
-2. Tambahkan dua dataset privat ke bagian Input. [Ekspor indoor dan foto uji](https://www.kaggle.com/datasets/seaalautt/cpmk3-indoor-test40) dan [patch anotasi HP](https://www.kaggle.com/datasets/seaalautt/cpmk3-review-mask-hp)
-3. Tambahkan output versi 1 dari ketiga notebook pelatihan. [Pelatihan awal](https://www.kaggle.com/code/seaalautt/cpmk3-training-gpu/output), [Mask R-CNN tambahan](https://www.kaggle.com/code/seaalautt/cpmk3-nrp-mask-r-cnn/output), dan [YOLO11s tambahan](https://www.kaggle.com/code/seaalautt/cpmk3-nrp-yolo11s/output)
-4. Pakai `RUN_TRAINING = False` untuk menilai checkpoint yang sudah ada. Notebook membaca input dari `/kaggle/input` dan menyimpan hasil ke `/kaggle/working/cpmk3_final`.
+2. Tambahkan kedua dataset dan output **Version 1** dari ketiga notebook pelatihan.
+3. Pakai `RUN_TRAINING = False` untuk menilai checkpoint yang sudah ada. Notebook membaca input dari `/kaggle/input` dan menyimpan hasil ke `/kaggle/working/cpmk3_final`.
 
 Hipotesis dibuat sebelum pelatihan tambahan. Catatan hipotesis sebelum pelatihan pertama masih belum tersedia. Metadata EXIF, overlay, dan gambar contoh kegagalan bisa dilihat di Output Kaggle.
