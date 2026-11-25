@@ -1,14 +1,14 @@
 # CPMK3 Segmentasi Instance Indoor
 
-Eksperimen membandingkan YOLO11n-seg, YOLO11s-seg, dan Mask R-CNN ResNet-50 FPN. Digit NRP 0 menentukan ukuran input 320, 640, dan 960. Data latih dan validasi berasal dari ekspor COCO v2 sesuai pilihan pengguna. Kecocokan jumlah split publik dengan v5 tercatat di notebook. Asal setiap gambar dan label v5 perlu bukti tambahan.
+Tugas ini membandingkan YOLO11n-seg, YOLO11s-seg, dan Mask R-CNN ResNet-50 FPN. Sesuai digit NRP 0, tiap model dicoba dengan ukuran input 320, 640, dan 960 piksel. Data latih dan validasi memakai ekspor COCO v2. Jumlah gambar per bagian pada data publik cocok dengan v5. Kecocokan tiap gambar dan label masih perlu dicek.
 
-Notebook Kaggle menyimpan dataset privat, hasil pelatihan, dan overlay revisi 40 foto HP. Revisi mask dibantu Codex dan Mask2Former. Draf 352 mask masih menunggu pemeriksaan manual di Roboflow. Tangkapan layar satu pengeditan polygon yang cocok dengan set uji tercantum di halaman 2 laporan.
+Dataset privat, hasil pelatihan, dan overlay untuk 40 foto HP ada di Kaggle. Codex dan Mask2Former membantu menyiapkan draf 352 mask. Drafnya masih perlu dicek di Roboflow. Halaman 2 laporan menunjukkan satu contoh pengeditan polygon pada foto yang cocok dengan set uji.
 
-Riwayat Git dimulai setelah rubrik tambahan diterima pada 23 November 2026. Notebook yang sudah digunakan disimpan sebagai cuplikan tahap kerja saat itu.
+Riwayat Git mulai dicatat setelah rubrik tambahan diterima pada 23 November 2026. Notebook di repo ini mencatat cara kerja pada tiap tahap.
 
-Evaluasi Kaggle versi 4 selesai pada 24 November 2026. Tabel dan grafik hasilnya tersedia di repo ini.
+Evaluasi versi 4 selesai di Kaggle pada 24 November 2026. Tabel dan grafiknya bisa dibuka langsung dari repo ini.
 
-## Hasil dan bukti proses
+## Hasil dan catatan pengerjaan
 
 - [Buka Output Kaggle versi 4](hasil/README.md)
 - [CSV pelatihan asli dan waktu GPU](bukti/log-training/)
@@ -18,17 +18,19 @@ Evaluasi Kaggle versi 4 selesai pada 24 November 2026. Tabel dan grafik hasilnya
 
 ## Notebook
 
-1. Pelatihan awal melatih ketiga model pada 640, serta YOLO11n pada 320 dan 960. [Notebook pelatihan awal](notebooks/01-pelatihan-awal.ipynb)
-2. Audit revisi memasang draf 352 mask untuk 40 foto HP dan menghasilkan overlay serta riwayat perubahan. [Notebook audit revisi](notebooks/02-audit-revisi-mask-hp.ipynb)
-3. Dua notebook NRP tambahan melatih YOLO11s dan Mask R-CNN pada 320 dan 960. [Notebook YOLO11s](notebooks/03-nrp-yolo11s-tambahan.ipynb) dan [notebook Mask R-CNN](notebooks/03-nrp-mask-r-cnn-tambahan.ipynb)
-4. Evaluasi memuat sembilan checkpoint, menilai validasi per ukuran, dan membandingkan tiga baseline 640 pada kedua set uji. Skor sebelum dan setelah revisi HP memakai prediksi yang sama. [Notebook evaluasi](notebooks/04-perbandingan-sembilan-run.ipynb)
-5. Demo memuat model terlatih untuk inferensi foto baru. Kontrol ambang dan pilihan kelas dapat digunakan saat tanya jawab. [Notebook demo](notebooks/05-demo-foto-baru.ipynb)
+1. Ketiga model dilatih pada 640 piksel. YOLO11n juga dicoba pada 320 dan 960 piksel. [Notebook pelatihan awal](notebooks/01-pelatihan-awal.ipynb)
+2. Lihat draf 352 mask pada 40 foto HP serta catatan perubahan dan overlay-nya. [Notebook audit revisi](notebooks/02-audit-revisi-mask-hp.ipynb)
+3. YOLO11s dan Mask R-CNN juga dilatih pada 320 dan 960 piksel untuk percobaan NRP. [Notebook YOLO11s](notebooks/03-nrp-yolo11s-tambahan.ipynb) dan [notebook Mask R-CNN](notebooks/03-nrp-mask-r-cnn-tambahan.ipynb)
+4. Sembilan checkpoint dinilai pada set validasi. Untuk dua set uji, ketiga model dibandingkan pada ukuran 640 piksel. Skor sebelum dan sesudah revisi label HP dihitung dengan prediksi yang sama. [Notebook evaluasi](notebooks/04-perbandingan-sembilan-run.ipynb)
+5. Coba model yang sudah dilatih dengan foto baru. Saat tanya jawab, ambang skor dan kelas bisa dipilih langsung. [Notebook demo](notebooks/05-demo-foto-baru.ipynb)
 
 ## Menjalankan ulang evaluasi di Kaggle
 
-1. Impor notebook evaluasi dan pilih GPU. Aktifkan internet untuk pemasangan dependensi pada sel pertama.
-2. Lampirkan kedua dataset privat sebagai Kaggle Input. [Ekspor indoor dan foto uji](https://www.kaggle.com/datasets/seaalautt/cpmk3-indoor-test40) dan [patch anotasi HP](https://www.kaggle.com/datasets/seaalautt/cpmk3-review-mask-hp)
-3. Lampirkan output versi 1 dari masing-masing notebook pelatihan. [Pelatihan awal](https://www.kaggle.com/code/seaalautt/cpmk3-training-gpu/output), [Mask R-CNN tambahan](https://www.kaggle.com/code/seaalautt/cpmk3-nrp-mask-r-cnn/output), dan [YOLO11s tambahan](https://www.kaggle.com/code/seaalautt/cpmk3-nrp-yolo11s/output)
-4. Gunakan `RUN_TRAINING = False` untuk evaluasi checkpoint yang tersedia. Notebook mencari input di `/kaggle/input` dan menulis hasil ke `/kaggle/working/cpmk3_final`.
+Pakai akun Kaggle `seaalautt` untuk membuka dataset dan output pelatihan yang privat.
 
-Hipotesis bertanggal dicatat sebelum run tambahan. Catatan sebelum training pertama belum tersedia. Metadata EXIF, overlay, dan contoh kegagalan bergambar tersedia di Output Kaggle.
+1. Impor notebook evaluasi ke Kaggle, pilih GPU, lalu aktifkan internet supaya sel pertama bisa memasang pustaka yang dibutuhkan.
+2. Tambahkan dua dataset privat ke bagian Input. [Ekspor indoor dan foto uji](https://www.kaggle.com/datasets/seaalautt/cpmk3-indoor-test40) dan [patch anotasi HP](https://www.kaggle.com/datasets/seaalautt/cpmk3-review-mask-hp)
+3. Tambahkan output versi 1 dari ketiga notebook pelatihan. [Pelatihan awal](https://www.kaggle.com/code/seaalautt/cpmk3-training-gpu/output), [Mask R-CNN tambahan](https://www.kaggle.com/code/seaalautt/cpmk3-nrp-mask-r-cnn/output), dan [YOLO11s tambahan](https://www.kaggle.com/code/seaalautt/cpmk3-nrp-yolo11s/output)
+4. Pakai `RUN_TRAINING = False` untuk menilai checkpoint yang sudah ada. Notebook membaca input dari `/kaggle/input` dan menyimpan hasil ke `/kaggle/working/cpmk3_final`.
+
+Hipotesis dibuat sebelum pelatihan tambahan. Catatan hipotesis sebelum pelatihan pertama masih belum tersedia. Metadata EXIF, overlay, dan gambar contoh kegagalan bisa dilihat di Output Kaggle.

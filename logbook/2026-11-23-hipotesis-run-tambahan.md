@@ -1,11 +1,11 @@
 # Hipotesis sebelum run tambahan NRP 0
 
-Dicatat 23 November 2026 20:38:48 WIB, sebelum pengiriman run tambahan YOLO11s dan Mask R-CNN ke Kaggle. Rubrik baru diterima setelah pelatihan awal berjalan. Pada saat catatan dibuat, YOLO11n 640 dan YOLO11s 640 sudah menghasilkan validasi awal. Mask R-CNN 640 sedang berlatih. Logbook yang diberikan untuk 17–19 November berisi kegiatan foto, anotasi, pemisahan, dan persiapan kode.
+Catatan awal dibuat pada 23 November 2026 pukul 20:38:48 WIB, sebelum percobaan tambahan YOLO11s dan Mask R-CNN dikirim ke Kaggle. Rubrik baru diterima saat pelatihan awal sudah berjalan. Waktu itu, YOLO11n dan YOLO11s pada 640 piksel sudah punya hasil validasi awal. Mask R-CNN 640 masih dilatih. Catatan 17–19 November mencakup pengambilan foto, anotasi, pembagian data, dan persiapan kode.
 
-- Aku memperkirakan YOLO11s unggul pada kelas **book** dan **plug** di resolusi 960. Ukuran yang lebih besar mempertahankan detail objek kecil sebelum prediksi dense, dan kapasitas YOLO11s lebih besar daripada YOLO11n.
-- Aku memperkirakan Mask R-CNN kompetitif pada kelas **chair** dan **pillow**, khususnya saat objek berdekatan. Proposal region dan mask per ROI dapat memisahkan instance yang berhimpitan. Grid mask 28×28 dapat tetap membatasi detail kaki kursi yang tipis.
-- Aku memperkirakan peningkatan resolusi dari 320 lebih membantu objek kecil daripada permukaan besar seperti **wall-other-merged**. Uji dengan AP kelas pada validation, lalu laporkan angka aktual beserta ground truth yang tersedia.
+- Pada 960 piksel, dugaan saya YOLO11s akan unggul pada kelas **book** dan **plug**. Input yang lebih besar membantu menjaga detail benda kecil, dan YOLO11s punya kapasitas model lebih besar dibanding YOLO11n.
+- Saya menduga Mask R-CNN cukup bagus untuk kelas **chair** dan **pillow**, terutama kalau objeknya berdekatan. Model ini membuat mask per area objek, sehingga bisa membantu membedakan tiap objek yang berhimpitan. Grid mask 28×28 masih bisa kehilangan bagian tipis seperti kaki kursi.
+- Dari ukuran awal 320 piksel, saya menduga kenaikan resolusi paling terasa pada objek kecil. Permukaan besar seperti **wall-other-merged** dipakai sebagai pembanding. Dugaan ini dicek lewat AP tiap kelas di set validasi dan jumlah anotasi yang tersedia.
 
-Bandingkan tiga ukuran per model dengan split, seed, dan recipe sama. Sajikan hasil checkpoint terbaik validation dengan anggaran waktu per model, serta hasil pada jumlah epoch yang sama dalam tiap model jika log tersedia. Test HP disimpan untuk evaluasi akhir dan pengukuran domain shift.
+Tiga ukuran pada tiap model memakai pembagian data, seed, dan pengaturan pelatihan yang sama. Tabel utama memakai checkpoint terbaik di validasi dengan anggaran waktu tiap model. Log yang tersedia juga dipakai untuk melihat skor pada jumlah epoch yang sama. Foto HP dipakai untuk uji akhir dan melihat selisih skor saat model bertemu foto ruangan lain.
 
-Ini merupakan catatan prospektif untuk run tambahan. Bukti yang akan dikumpulkan adalah waktu commit ini dan waktu mulai run tambahan di log Kaggle.
+Urutan pengerjaan bisa dicek dari waktu commit awal catatan ini dan waktu mulai pelatihan tambahan di log Kaggle.
