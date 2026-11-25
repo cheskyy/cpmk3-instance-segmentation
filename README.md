@@ -10,6 +10,8 @@ Evaluasi versi 4 selesai di Kaggle pada 24 November 2026. Tabel dan grafiknya bi
 
 ## Hasil dan catatan pengerjaan
 
+- [Laporan lengkap dari persiapan data sampai hasil uji](laporan/README.md) · [Contoh gambar ground truth](laporan/README.md#2-anotasi-dan-contoh-ground-truth) · [Daftar pengujian yang sudah dilakukan](laporan/README.md#4-pengujian-yang-sudah-dilakukan)
+
 - [Laporan revisi (PDF)](laporan/Visi_Komputer_Laporan_Chelsea_5054241010_Revisi.pdf)
 - Untuk bukti evaluasi asli, buka **Version 4** di notebook Kaggle. Tautan bisa dibuka dengan akun yang punya akses ke notebook privat. [Notebook evaluasi di Kaggle](https://www.kaggle.com/code/seaalautt/cpmk3-instance-segmentation)
 - [Tabel dan grafik hasil evaluasi](hasil/README.md)
