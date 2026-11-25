@@ -74,6 +74,14 @@ Foto uji HP `20261118_192940.jpg` adalah salah satu dari lima kasus yang diuji u
 
 Mask sian menandai dinding. Model juga memprediksi kelas `person` (merah muda, skor 0,66) pada area yang mencakup botol. Ground truth menandai botol dengan warna hijau dan buku dengan warna kuning. [Tabel lima kasus](../hasil/uji_lima_kasus.csv)
 
+### YOLO11n-seg · Perbandingan ukuran input
+
+Foto uji yang sama juga diproses pada 320 dan 960 piksel dengan checkpoint YOLO11n-seg yang sama. Di bawah ini ketiga prediksi ditampilkan dengan ambang skor 0,50. Warna yang sama menunjukkan kelas yang sama.
+
+![Foto asli, ground truth, dan prediksi YOLO11n-seg pada 320, 640, dan 960 piksel](gambar/yolo11n-tiga-resolusi.png)
+
+Pada foto ini, model menandai dinding pada ketiga ukuran. Prediksi tambahan berubah dari meja pada 320 piksel menjadi orang pada 640 piksel. Pada 960 piksel hanya mask dinding yang melewati ambang skor. [Tabel pengujian lima kasus](../hasil/uji_lima_kasus.csv)
+
 ## 6. Kesimpulan dan demo
 
 Pilihan ukuran input bergantung pada model. **YOLO11s-seg 960** unggul pada validasi, sementara **YOLO11s-seg 640** unggul dalam perbandingan tiga model pada kedua set uji pada 640 piksel. Audit foto HP juga menunjukkan bahwa kelengkapan dan konsistensi anotasi memengaruhi skor yang dilaporkan.
